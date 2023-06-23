@@ -1,142 +1,139 @@
-*{
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
 
-:root{
-font-size: 62.5%;
-font-family:'Roboto', sans-serif;
---hug-:4.8rem;
+:root {
+  font-size: 62.5%;
+  font-family: "Roboto", sans-serif;
+  --hug-: 4.8rem;
 }
 
-body{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color:#E1E1E6;
-    background-color: #000000;
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #e1e1e6;
+  background-color: #000000;
 }
 
-header{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-content: center;
-    margin-top: 11.5rem;
-    margin-bottom: 8.7rem;
-    height: var(--hug-);
-   align-items: center;
-   
+header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-content: center;
+  margin-top: 11.5rem;
+  margin-bottom: 8.7rem;
+  height: var(--hug-);
+  align-items: center;
 }
 
-
-
-header input{
-    width: 46.2rem;
-    background: #06181C;
-    height: var(--hug-);
-    border: none;
-    border-radius: 0.5rem;
-    gap:0.8rem;
-    padding-left:1rem ;
+header input {
+  width: 46.2rem;
+  background: #06181c;
+  height: var(--hug-);
+  border: none;
+  border-radius: 0.5rem;
+  gap: 0.8rem;
+  padding-left: 1rem;
 }
-header button{
-    align-items: center;
-    justify-content: center;
-    font-size: 1rem;
-    height: var(--hug-);
-    padding: 1.4rem;
-    background-color: #065E7C;
-    color:#E1E1E6;
-    font-weight: 700;
-    border:none;
-    border-radius: 0.5rem;
-    cursor:pointer;
+header button {
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  height: var(--hug-);
+  padding: 1.4rem;
+  background-color: #065e7c;
+  color: #e1e1e6;
+  font-weight: 700;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
 }
 
-
-table{
-    width: 111.2rem;
-    border-radius: 1.2rem;
-    border:1px solid #4A808C;
-    box-shadow: 0.5rem 1rem 1rem .2rem #092127;
+table {
+  width: 111.2rem;
+  border-radius: 1.2rem;
+  border: 1px solid #4a808c;
+  box-shadow: 0.5rem 1rem 1rem 0.2rem #092127;
 }
 
-thead{
-    background-color: #092D38;
-    height: 6.4rem;   
+thead {
+  background-color: #092d38;
+  height: 6.4rem;
 }
 
-th{
-    font-size: 2rem;
-    font-weight: 700;
+th {
+  font-size: 2rem;
+  font-weight: 700;
 }
 
-table th:first-child{
-    border-top-left-radius:1rem;
-  
+table th:first-child {
+  border-top-left-radius: 1rem;
 }
-table th:last-child{
-      border-top-right-radius:1rem;
-}
-
-table tbody tr{
-    background: #0b2c33;
-}
-table tbody tr:nth-child(odd){
-    background: #132529 ;
+table th:last-child {
+  border-top-right-radius: 1rem;
 }
 
-.repositories, .followers{
-    font-size:2rem;
-    justify-content: center;
-    text-align: center;
+table tbody tr {
+  background: #0b2c33;
 }
-.user{
-    display: flex;
-    flex-direction: row;
-    gap:1rem;
-    align-items: center;
-    padding-top: 2.4rem;
-    padding-bottom:2.4rem;
-    padding-left: 4rem;
-    
+table tbody tr:nth-child(odd) {
+  background: #132529;
 }
 
-.user img{
-    width:5.6rem;
-    height: 5.6rem;
-    border-radius:5.6rem;
+.repositories,
+.followers {
+  font-size: 2rem;
+  justify-content: center;
+  text-align: center;
+}
+.user {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  align-items: center;
+  padding-top: 2.4rem;
+  padding-bottom: 2.4rem;
+  padding-left: 4rem;
 }
 
-.user p{
-    font-weight: 700;
-    font-size: 2rem;
-    color:#E1E1E6
-
+.user img {
+  width: 5.6rem;
+  height: 5.6rem;
+  border-radius: 5.6rem;
 }
 
-.user a{
-    text-decoration: none;
+.user p {
+  font-weight: 700;
+  font-size: 2rem;
+  color: #e1e1e6;
 }
 
-.user span{
-    font-weight: 400;
-    line-height: 3.2rem;
-    color:#E1E1E6;
+.user a {
+  text-decoration: none;
 }
 
-.action{
-     align-items: center;
-    justify-content: center;
-    text-align: center;
+.user span {
+  font-weight: 400;
+  line-height: 3.2rem;
+  color: #e1e1e6;
 }
-.action button{
-    border: none;
-    background: none;
-    color: #F75A68;
-    font-weight: 700;
-    cursor: pointer;
 
+.action {
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+.action button {
+  border: none;
+  background: none;
+  color: #f75a68;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+input {
+  color: #e1e1e6;
 }

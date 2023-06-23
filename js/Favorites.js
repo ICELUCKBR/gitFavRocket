@@ -1,17 +1,42 @@
 //class que vai conter a logica dos dados
 //Como os dados serão distriubidos
+import { GithubUsers } from "./GithubUsers.js";
 
 export class Favorites {
   constructor(root) {
     this.root = document.querySelector(root);
     this.load();
+
+    GithubUsers.search("iceluckbr").then((user) => console.log(user));
   }
 
   load() {
-    const entries  = localStorage.getItem('@github-favorites:')
-   this.entries = []
+    this.entries = JSON.parse(localStorage.getItem("@github-favorites:")) || [];
+  }
 
+  save() {
+    localStorage.setItem("@github-favorites:", JSON.stringify(this.entries));
+  }
 
+  async add(username) {
+    try {
+      const userExists = this.entries.find((entry) => entry.login === username);
+
+      if (userExists) {
+        throw new Error("Usúario já cadastrado");
+      }
+      const user = await GithubUsers.search(username);
+
+      if (user.login === undefined) {
+        throw new Error("Usuário não encontrado!!");
+      }
+
+      this.entries = [user, ...this.entries];
+      this.update();
+      this.save();
+    } catch (error) {
+      alert(error.message);
+    }
   }
 
   delete(user) {
@@ -20,6 +45,7 @@ export class Favorites {
     );
     this.entries = filteredEntries;
     this.update();
+    this.save();
   }
 }
 
@@ -28,6 +54,15 @@ export class FavoritesView extends Favorites {
     super(root);
     this.tbody = this.root.querySelector("table tbody");
     this.update();
+    this.onadd();
+  }
+
+  onadd() {
+    const addbutton = this.root.querySelector(".search button");
+    addbutton.onclick = () => {
+      const { value } = this.root.querySelector(".search input");
+      this.add(value);
+    };
   }
 
   update() {
@@ -40,6 +75,7 @@ export class FavoritesView extends Favorites {
         ".user img"
       ).src = `https://github.com/${user.login}.png`;
       row.querySelector(".user img").alt = `Imagem de ${user.name}`;
+      row.querySelector(".user a").href = `https://github.com/${user.login}`;
       row.querySelector(".user p").textContent = user.name;
       row.querySelector(".user span").textContent = user.login;
       row.querySelector(".repositories").textContent = user.public_repos;
@@ -62,16 +98,16 @@ export class FavoritesView extends Favorites {
 
             <td class="user">
               <img
-                src="https://github.com/iceluckbr.png"
-                alt="imagem de allan Garcia"
+                src=""
+                alt=""
               />
-              <a href="https://github.com/iceluckbr" target="_blank">
-                <p>Allan Garcia</p>
-                <span>/iceluckbr</span>
+              <a href="" target="_blank">
+                <p></p>
+                <span></span>
               </a>
             </td>
-            <td class="repositories">33</td>
-            <td class="followers">18</td>
+            <td class="repositories"></td>
+            <td class="followers"></td>
             <td class="action"><button>Remover</button></td>
           `;
 
